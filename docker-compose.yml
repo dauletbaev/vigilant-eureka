@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  db:
+    image: mongo
+
+  app:
+    build: .
+    depends_on:
+      - db
+    env_file:
+      - .env

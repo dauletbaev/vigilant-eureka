@@ -1,0 +1,8 @@
+node_modules
+.git*
+.editorconfig
+Dockerfile
+docker-compose.yml
+README.md
+uploads/*
+.prettierrc
