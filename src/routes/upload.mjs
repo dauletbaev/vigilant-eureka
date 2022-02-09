@@ -30,7 +30,7 @@ const router = Router();
  *                ok:
  *                  example: true
  *                path:
- *                  example: /uploads/file-1644329642414.jpg
+ *                  example: /uploads/2022-09-2/file-1644387106564.jpg
  */
 router.post('/upload', upload.single('file'), uploadController);
 
