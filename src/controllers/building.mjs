@@ -1,13 +1,13 @@
-import { buildingModel } from '../models/building.mjs';
+import { Building } from '../models/building.mjs';
 import { HttpError } from '../errors/HttpError.mjs';
 import { defaultBuildings } from '../constants/building.mjs';
 
 export const getBuildings = async (req, res, next) => {
   try {
-    const buildings = await buildingModel.find();
+    const buildings = await Building.find();
 
     if (buildings.length === 0) {
-      await buildingModel.insertMany(defaultBuildings);
+      await Building.insertMany(defaultBuildings);
     }
 
     res.status(200).json({
@@ -31,7 +31,7 @@ export const addBuilding = async (req, res, next) => {
     const data = { name, description, image };
     if (subBuilding) data.subBuilding = subBuilding;
 
-    const building = await buildingModel.create(data);
+    const building = await Building.create(data);
     await building.save();
 
     res.status(201).json({ ok: true, building });

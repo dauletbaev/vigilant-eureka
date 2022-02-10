@@ -4,8 +4,10 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --production --lock-freeze
+RUN yarn install --production --frozen-lockfile
 
 COPY . ./
+
+EXPOSE 80
 
 CMD ["yarn", "start"]

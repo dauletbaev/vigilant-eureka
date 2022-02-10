@@ -1,11 +1,14 @@
+const title = 'Express API with Swagger';
+const version = '0.1'
+const description = 'A simple Express API with Swagger';
+
 export const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Express API with Swagger',
-      version: '0.1.0',
-      description:
-        'This is a simple CRUD API application made with Express and documented with Swagger',
+      title,
+      version,
+      description,
       license: {
         name: 'MIT',
         url: 'https://spdx.org/licenses/MIT.html',
@@ -24,5 +27,6 @@ export const options = {
   apis: [
     './src/routes/auth.mjs',
     './src/routes/upload.mjs',
+    './src/routes/building.mjs',
   ],
 };

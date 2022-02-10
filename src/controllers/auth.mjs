@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import { adminModel } from '../models/admin.mjs';
+import { Admin } from '../models/admin.mjs';
 import { HttpError } from '../errors/HttpError.mjs';
 import { generateToken } from '../utils/jwt.mjs';
 
@@ -10,7 +10,7 @@ export const loginController = async (req, res, next) => {
     if (!username || !password)
       throw new HttpError(400, 'username and password required.');
 
-    const admin = await adminModel.findOne({ username });
+    const admin = await Admin.findOne({ username });
 
     if (!admin) throw new HttpError(400, 'Invalid password or username.');
 
@@ -39,7 +39,7 @@ export const signupController = async (req, res, next) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const admin = await adminModel.create({
+    const admin = await Admin.create({
       username,
       password: hashedPassword,
     });

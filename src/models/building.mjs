@@ -30,4 +30,4 @@ const options = {
 SubBuildingSchema.set('toJSON', options);
 BuildingSchema.set('toJSON', options);
 
-export const buildingModel = mongoose.model('building', BuildingSchema);
+export const Building = mongoose.model('building', BuildingSchema);
